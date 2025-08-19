@@ -1,237 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ДЮСШ 21 — Дитячо-юнацька спортивна школа</title>
-  <meta name="description" content="ДЮСШ 21: футбол, настільний теніс, плавання та гімнастика. Розклад, тренери, адміністрація, стадіон Дніпровець, новини та контакти." />
-  <style>
-    :root{--violet:#6b46c1;--violet-dark:#55309c;--violet-50:#f3e8ff;--text:#1f2937;--bg:#ffffff}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg);}
-    a{color:var(--violet);text-decoration:none}
-    a:hover{opacity:.9}
-    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
-    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .logo{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--violet)}
-    .logo-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--violet),var(--violet-dark));display:grid;place-items:center;color:#fff;font-weight:900}
-    .menu{display:flex;gap:14px;flex-wrap:wrap}
-    .menu a{padding:8px 10px;border-radius:10px}
-    .menu a:hover{background:var(--violet-50)}
-    .hero{background:linear-gradient(180deg, var(--violet-50), #fff);border-bottom:1px solid #eee}
-    .wrap{max-width:1100px;margin:auto;padding:28px 16px}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-    .badge{display:inline-block;background:var(--violet-50);color:var(--violet);padding:6px 10px;border-radius:999px;font-weight:700;font-size:.9rem}
-    h1{font-size:clamp(28px,4.2vw,44px);margin:10px 0;color:var(--violet-dark)}
-    .lead{font-size:1.1rem;line-height:1.6}
-    .cta{display:flex;gap:12px;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;font-weight:700;border:2px solid var(--violet);}
-    .btn.primary{background:var(--violet);color:#fff;border-color:var(--violet)}
-    .btn.secondary{background:#fff;color:var(--violet)}
-    .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .card{border:1px solid #eee;border-radius:16px;overflow:hidden;background:#fff}
-    .card .p{padding:16px}
-    .tag{display:inline-block;background:#f7f7f7;padding:4px 8px;border-radius:999px;font-size:.85rem}
-    .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,3.2vw,32px);color:var(--violet-dark);margin:0 0 12px}
-    .muted{color:#6b7280}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .pill{background:var(--violet-50);color:var(--violet);padding:4px 10px;border-radius:999px;font-weight:600;font-size:.9rem}
-    img.resp{width:100%;height:220px;object-fit:cover;display:block}
-    .table{width:100%;border-collapse:collapse;border:1px solid #eee;border-radius:12px;overflow:hidden}
-    .table th,.table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .news article{border:1px solid #eee;border-radius:16px;overflow:hidden;background:#fff}
-    .news h3{margin:8px 0 0;font-size:1.05rem}
-    .news time{font-size:.85rem;color:#6b7280}
-    form{display:grid;gap:10px}
-    input,select,textarea{padding:12px 14px;border:1px solid #ddd;border-radius:12px;font:inherit}
-    input:focus,textarea:focus,select:focus{outline:2px solid var(--violet-50)}
-    footer{border-top:1px solid #eee}
-    .foot{display:grid;gap:4px;color:#6b7280}
-    .map{width:100%;border:0;border-radius:12px;height:280px}
-    .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid #eee;border-radius:999px}
-    @media (max-width:960px){.hero-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}.news{grid-template-columns:1fr 1fr}}
-    @media (max-width:640px){.menu{display:none}.card-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.news{grid-template-columns:1fr}}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ДЮСШ‑21 | Дитяча футбольна школа</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+  <!--
+    Сторінка побудована для дитячо‑юнацької спортивної школи «ДЮСШ‑21».
+    Контент підтягується з файлу data/site.json через простий скрипт.
+    Для редагування інформації використовуйте Netlify CMS (розділ /admin/).
+  -->
 </head>
 <body>
-  <header>
-    <nav class="nav">
-      <a href="#top" class="logo">
-        <span class="logo-badge">21</span>
-        ДЮСШ 21
-      </a>
-      <div class="menu">
-        <a href="#about">Про школу</a>
-        <a href="#sections">Секції</a>
-        <a href="#staff">Адміністрація</a>
-        <a href="#coaches">Тренери</a>
-        <a href="#base">База</a>
-        <a href="#news">Новини</a>
-        <a href="#contact">Контакти</a>
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <!-- Текстовий варіант логотипу. Замініть на зображення при потребі -->
+        <span class="logo-text">ДЮСШ‑21</span>
       </div>
-    </nav>
+      <nav id="nav">
+        <ul>
+          <li><a href="#hero">Головна</a></li>
+          <li><a href="#admin">Керівництво</a></li>
+          <li><a href="#base">База</a></li>
+          <li><a href="#coaches">Тренери</a></li>
+          <li><a href="#news">Новини</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Перемкнути меню">
+        <!-- Іконка бургеру -->
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main id="top" class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="badge">Дитячо-юнацька спортивна школа №21</span>
-        <h1>Спорт, дисципліна та характер — разом із ДЮСШ 21</h1>
-        <p class="lead">У нас працюють секції <strong>футболу</strong>, <strong>настільного тенісу</strong>, <strong>плавання</strong> та <strong>гімнастики</strong>. Тренування для дітей різних вікових груп, зручні локації та досвідчені тренери.</p>
-        <div class="cta">
-          <a class="btn primary" href="#sections">Обрати секцію</a>
-          <a class="btn secondary" href="#contact">Записатися на пробне</a>
-        </div>
-        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-          <span class="chip">🎓 Досвідчені тренери</span>
-          <span class="chip">🏟️ Стадіон «Дніпровець» — основна база</span>
-          <span class="chip">📍 Зручні локації</span>
-        </div>
-      </div>
-      <div>
-        <img class="resp" alt="Діти на тренуванні" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB2aWV3Qm94PScwIDAgNjQwIDM2MCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgyPScwJyB5Mj0nMSc+PHN0b3Agb2Zmc2V0PScwJyBzdG9wLWNvbG9yPScjZjNlOGZmJy8+PHN0b3Agb2Zmc2V0PScxJyBzdG9wLWNvbG9yPScjZmZmJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzY0MCcgaGVpZ2h0PSczNjAnIGZpbGw9InVybCgjZykiIHJ4PScyMCcvPjxnIGZpbGw9JyM2YjQ2YzEnIG9wYWNpdHk9Jy44Jz48Y2lyY2xlIGN4PScxNScgY3k9JzE1MCcgcj0nNDAnLz48Y2lyY2xlIGN4PScyOTAnIGN5PScxMjUnIHI9Jzc1Jy8+PGNpcmNsZSBjeD0nNTIwJyBjeT0nMjAwJyByPSc2MCcvPjwvZz48dGV4dCB4PSczMicgeT0nMzI1JyBmb250LXNpemU9JzI0JyBmaWxsPScjNTUzMDljJz5GcmllbmRseSBwaWN0dXJlIHBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPiIg/>
+  <!-- Герой/вітальний блок -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 id="hero-title">ДЮСШ‑21</h1>
+      <p id="hero-subtitle">Юнацька футбольна школа Києва</p>
+      <div class="hero-buttons">
+        <a href="#contacts" class="btn btn-primary">Записатися</a>
+        <a href="#coaches" class="btn btn-secondary">Дізнатися більше</a>
       </div>
     </div>
-  </main>
+  </section>
 
-  <section id="about" class="section">
-    <div class="wrap">
+  <!-- Блок про школу -->
+  <section id="about" class="about">
+    <div class="container">
       <h2>Про школу</h2>
-      <p>ДЮСШ 21 — це сучасна спортивна школа, що виховує любов до спорту та здорового способу життя. Ми працюємо з дітьми різного рівня підготовки, допомагаємо розвивати силу, витривалість, командну роботу та повагу до суперника.</p>
-      <div class="grid-2">
-        <div class="card"><img class="resp" alt="Історія школи" src="https://placehold.co/800x400/6b46c1/ffffff?text=%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F"/><div class="p"><span class="pill">Історія</span><p>Школа заснована у <strong>19__</strong> році. Випускники ДЮСШ 21 ставали переможцями міських і обласних змагань, а також продовжували кар’єру у професійному спорті.</p></div></div>
-        <div class="card"><img class="resp" alt="Цінності школи" src="https://placehold.co/800x400/efeafe/6b46c1?text=%D0%A6%D1%96%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%96"/><div class="p"><span class="pill">Наші цінності</span><p>Безпека, повага, дисципліна та розвиток. Ми співпрацюємо з батьками й будуємо індивідуальні траєкторії росту для кожної дитини.</p></div></div>
+      <div id="about-text">
+        <!-- Заповнюється з JSON -->
       </div>
     </div>
   </section>
 
-  <section id="sections" class="section" style="background:#faf7ff">
-    <div class="wrap">
-      <h2>Секції</h2>
-      <div class="card-grid">
-        <div class="card"><img class="resp" alt="Футбол" src="https://placehold.co/600x300/efeafe/6b46c1?text=%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB"/><div class="p"><span class="tag">Футбол</span><p>Групи 6–8, 9–11, 12–14, 15–17 років. Техніка, фізпідготовка, ігрова практика.</p></div></div>
-        <div class="card"><img class="resp" alt="Настільний теніс" src="https://placehold.co/600x300/f3e8ff/6b46c1?text=%D0%9D%D0%B0%D1%81%D1%82%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9+%D1%82%D0%B5%D0%BD%D1%96%D1%81"/><div class="p"><span class="tag">Настільний теніс</span><p>Розвиток координації, реакції та тактичного мислення. Малі групи.</p></div></div>
-        <div class="card"><img class="resp" alt="Плавання" src="https://placehold.co/600x300/6b46c1/ffffff?text=%D0%9F%D0%BB%D0%B0%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F"/><div class="p"><span class="tag">Плавання</span><p>Навчання з нуля та спортивні групи. Техніка, дихання, витривалість.</p></div></div>
-        <div class="card"><img class="resp" alt="Гімнастика" src="https://placehold.co/600x300/efeafe/6b46c1?text=%D0%93%D1%96%D0%BC%D0%BD%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0"/><div class="p"><span class="tag">Гімнастика</span><p>Гнучкість, сила корпусу, координація. Безпечний підхід і прогрес.</p></div></div>
+  <!-- Керівництво школи -->
+  <section id="admin" class="persons">
+    <div class="container">
+      <h2>Керівництво школи</h2>
+      <div id="administration-list" class="person-grid">
+        <!-- Картки керівництва -->
       </div>
     </div>
   </section>
 
-  <section id="staff" class="section">
-    <div class="wrap">
-      <h2>Адміністрація</h2>
-      <div class="grid-3">
-        <div class="card"><img class="resp" alt="Директор" src="https://placehold.co/600x300/6b46c1/ffffff?text=%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Директор школи</p><p>Короткий опис повноважень і контактів.</p></div></div>
-        <div class="card"><img class="resp" alt="Заступник" src="https://placehold.co/600x300/efeafe/6b46c1?text=%D0%97%D0%B0%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%B8%D0%BA"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Заступник директора</p><p>Куратор навчального процесу.</p></div></div>
-        <div class="card"><img class="resp" alt="Адміністратор" src="https://placehold.co/600x300/f3e8ff/6b46c1?text=%D0%90%D0%B4%D0%BC%D1%96%D0%BD%D1%96%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Адміністратор</p><p>Запис, довідки, документи.</p></div></div>
+  <!-- База -->
+  <section id="base" class="base">
+    <div class="container">
+      <h2>Наша база</h2>
+      <div id="base-list" class="base-grid">
+        <!-- Картки об'єктів бази -->
       </div>
     </div>
   </section>
 
-  <section id="coaches" class="section" style="background:#faf7ff">
-    <div class="wrap">
-      <h2>Наші тренери</h2>
-      <div class="grid-4">
-        <div class="card"><img class="resp" alt="Тренер футбол" src="https://placehold.co/600x300/6b46c1/ffffff?text=%F0%9F%8F%88"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Футбол</p><p>Категорія А/B, <em>N</em> років досвіду. Переможці міських турнірів.</p></div></div>
-        <div class="card"><img class="resp" alt="Тренер теніс" src="https://placehold.co/600x300/efeafe/6b46c1?text=%F0%9F%8E%BE"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Настільний теніс</p><p>МСУ, підготовка призерів першостей області.</p></div></div>
-        <div class="card"><img class="resp" alt="Тренер плавання" src="https://placehold.co/600x300/f3e8ff/6b46c1?text=%F0%9F%8F%8A%EF%B8%8F"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Плавання</p><p>Сертифікований інструктор, корекційні групи.</p></div></div>
-        <div class="card"><img class="resp" alt="Тренер гімнастика" src="https://placehold.co/600x300/6b46c1/ffffff?text=%F0%9F%8F%86"/><div class="p"><strong>Імʼя Прізвище</strong><p class="muted">Гімнастика</p><p>Стаж 10+ років, індивідуальні плани.</p></div></div>
+  <!-- Тренери -->
+  <section id="coaches" class="persons">
+    <div class="container">
+      <h2>Тренерський склад</h2>
+      <div class="filters" id="coach-filters">
+        <!-- Фільтри за відділами -->
+      </div>
+      <div id="coaches-list" class="person-grid">
+        <!-- Картки тренерів -->
       </div>
     </div>
   </section>
 
-  <section id="base" class="section">
-    <div class="wrap">
-      <h2>Де проходять заняття</h2>
-      <div class="grid-2">
-        <div class="card"><img class="resp" alt="Стадіон Дніпровець" src="https://placehold.co/800x400/6b46c1/ffffff?text=%D0%A1%D1%82%D0%B0%D0%B4%D1%96%D0%BE%D0%BD+%C2%AB%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%86%D1%8C%C2%BB"/><div class="p"><span class="pill">Основна база</span><p><strong>Стадіон «Дніпровець»</strong> — головний осередок тренувань та змагань з футболу.</p></div></div>
-        <div class="card"><div class="p">
-          <table class="table">
-            <thead><tr><th>Секція</th><th>Адреса / Локація</th><th>Примітка</th></tr></thead>
-            <tbody>
-              <tr><td>Футбол</td><td>Стадіон «Дніпровець», вул. _______</td><td>Поле, бігова доріжка</td></tr>
-              <tr><td>Настільний теніс</td><td>Спортзал, вул. _______</td><td>6 столів, роздягальні</td></tr>
-              <tr><td>Плавання</td><td>Басейн, вул. _______</td><td>25 м доріжки, інвентар</td></tr>
-              <tr><td>Гімнастика</td><td>Зал гімнастики, вул. _______</td><td>Килими, бруси, кільця</td></tr>
-            </tbody>
-          </table>
-          <p class="muted">* Заповніть адреси — і ми оновимо сайт за хвилину.</p>
-        </div></div>
-      </div>
-      <div style="margin-top:16px">
-        <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=30.5%2C50.3%2C30.7%2C50.5&amp;layer=mapnik" allowfullscreen loading="lazy" title="Карта локацій"></iframe>
+  <!-- Новини -->
+  <section id="news" class="news">
+    <div class="container">
+      <h2>Останні новини</h2>
+      <div id="news-list" class="news-grid">
+        <!-- Картки новин -->
       </div>
     </div>
   </section>
 
-  <section id="news" class="section" style="background:#faf7ff">
-    <div class="wrap">
-      <h2>Новини</h2>
-      <div class="news">
-        <article>
-          <img class="resp" alt="Новина 1" src="https://placehold.co/600x300/efeafe/6b46c1?text=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D0%B0+1"/>
-          <div class="p">
-            <time datetime="2025-08-01">01 серпня 2025</time>
-            <h3>Старт набору до секцій на осінь</h3>
-            <p>Відкрито реєстрацію на новий сезон. Кількість місць обмежена.</p>
-          </div>
-        </article>
-        <article>
-          <img class="resp" alt="Новина 2" src="https://placehold.co/600x300/f3e8ff/6b46c1?text=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D0%B0+2"/>
-          <div class="p">
-            <time datetime="2025-07-20">20 липня 2025</time>
-            <h3>Команда U13 — призери міського турніру</h3>
-            <p>Вітаємо юних спортсменів та тренерський штаб!</p>
-          </div>
-        </article>
-        <article>
-          <img class="resp" alt="Новина 3" src="https://placehold.co/600x300/6b46c1/ffffff?text=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D0%B0+3"/>
-          <div class="p">
-            <time datetime="2025-06-05">05 червня 2025</time>
-            <h3>Оновлення інвентарю для гімнастики</h3>
-            <p>Закуплено нові килими та снаряди. Безпечніше та ефективніше тренуватись.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="wrap">
-      <h2>Запис та зворотній звʼязок</h2>
-      <p>Заповніть форму — повідомлення піде на нашу пошту. Також можна написати напряму: <a href="mailto:school@example.com">school@example.com</a> або зателефонувати: <a href="tel:+380000000000">+38 (000) 000-00-00</a>.</p>
-      <form action="mailto:school@example.com" method="POST" enctype="text/plain">
-        <div class="grid-3">
-          <input required name="Імʼя" placeholder="Імʼя дитини" />
-          <input required name="Контакт батьків" placeholder="Телефон або email" />
-          <select name="Секція">
-            <option>Футбол</option>
-            <option>Настільний теніс</option>
-            <option>Плавання</option>
-            <option>Гімнастика</option>
-          </select>
+  <!-- Контакти та форма -->
+  <section id="contacts" class="contacts">
+    <div class="container">
+      <h2>Контакти</h2>
+      <div class="contacts-wrapper">
+        <div class="contact-info">
+          <p><strong>Адреса:</strong> <span id="contact-address"></span></p>
+          <p><strong>Телефон:</strong> <a id="contact-phone" href=""></a></p>
+          <p><strong>Email:</strong> <a id="contact-email" href=""></a></p>
         </div>
-        <textarea name="Повідомлення" rows="5" placeholder="Питання або побажання"></textarea>
-        <button class="btn primary" type="submit">Надіслати</button>
-        <span class="muted">Порада: замініть <strong>school@example.com</strong> у коді на вашу адресу.</span>
-      </form>
+        <div class="contact-form">
+          <form id="signup-form" action="#" method="POST" onsubmit="return false;">
+            <div class="form-group">
+              <label for="name">Ім’я</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="age">Вік дитини</label>
+              <input type="number" id="age" name="age" min="5" max="21" required>
+            </div>
+            <div class="form-group">
+              <label for="sport">Вид спорту</label>
+              <select id="sport" name="sport" required>
+                <option value="Футбол">Футбол</option>
+                <option value="Настільний теніс">Настільний теніс</option>
+                <option value="Плавання">Плавання</option>
+                <option value="Гімнастика">Гімнастика</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phone">Контактний телефон</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Коментар</label>
+              <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+            <div class="form-group checkbox">
+              <label>
+                <input type="checkbox" id="consent" required>
+                Я погоджуюся на обробку персональних даних
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Надіслати</button>
+            <p id="form-status" class="form-status"></p>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="wrap foot">
-      <strong style="color:var(--violet)">ДЮСШ 21</strong>
-      <span>© <span id="y"></span> Дитячо-юнацька спортивна школа №21. Усі права захищено.</span>
-      <span>Політика конфіденційності · Публічна оферта</span>
+  <footer id="footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> ДЮСШ‑21. Усі права захищено.</p>
+      <p><a href="admin/">Редагувати сайт</a></p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

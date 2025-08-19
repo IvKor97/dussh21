@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+local_backend: true
+
+collections:
+  - name: "site"
+    label: "Контент сайту"
+    files:
+      - name: "site"
+        label: "Головний файл контенту"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Заголовок героя", name: "hero_title", widget: "string" }
+          - { label: "Підзаголовок героя", name: "hero_subtitle", widget: "string" }
+          - { label: "Про школу", name: "about", widget: "text" }
+          - label: "Керівництво"
+            name: "administration"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: "Ім’я", name: "name", widget: "string" }
+              - { label: "Посада", name: "role", widget: "string" }
+              - { label: "Опис", name: "description", widget: "text" }
+              - { label: "Фото", name: "photo", widget: "image" }
+          - label: "База"
+            name: "base"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Назва", name: "name", widget: "string" }
+              - { label: "Опис", name: "description", widget: "text" }
+              - { label: "Фото", name: "photo", widget: "image" }
+          - label: "Тренери"
+            name: "coaches"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.department}}"
+            fields:
+              - { label: "Ім’я", name: "name", widget: "string" }
+              - { label: "Роль", name: "role", widget: "string" }
+              - label: "Відділ"
+                name: "department"
+                widget: "select"
+                options: ["Футбол", "Настільний теніс", "Плавання", "Гімнастика"]
+              - { label: "Опис", name: "description", widget: "text" }
+              - { label: "Фото", name: "photo", widget: "image" }
+          - label: "Новини"
+            name: "news"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Короткий текст", name: "excerpt", widget: "text" }
+              - { label: "Фото", name: "photo", widget: "image" }
+              - { label: "Посилання", name: "link", widget: "string", required: false }
+          - label: "Контакти"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Адреса", name: "address", widget: "string" }
+              - { label: "Телефон", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
