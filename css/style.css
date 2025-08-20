@@ -419,11 +419,11 @@ section h2 {
   }
 }
 .hero-logo {
-  display: block !important;
-  position: relative !important;
-  z-index: 999 !important;
-  max-width: 200px !important;
-  height: auto !important;
-  margin: 20px auto !important;
-  border: 2px solid red; /* тимчасово, щоб побачити рамку */
+  display: block;
+  margin: 0 auto 16px;
+  max-width: 160px;   /* за потреби змінюй */
+  height: auto;
+}
+@media (max-width: 480px) {
+  .hero-logo { max-width: 120px; }
 }
