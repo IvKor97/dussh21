@@ -65,6 +65,41 @@
       "department": "Футбол",
       "description": "6",
       "photo": "/assets/uploads/photo_7_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "7",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "7",
+      "photo": "/assets/uploads/photo_8_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "8",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "8",
+      "photo": "/assets/uploads/photo_9_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "9",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "9",
+      "photo": "/assets/uploads/photo_10_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "10",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "10",
+      "photo": "/assets/uploads/photo_12_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "11",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "11",
+      "photo": "/assets/uploads/photo_13_2025-08-20_10-44-34.jpg"
     }
   ],
   "news": [
