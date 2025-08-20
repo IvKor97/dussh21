@@ -23,7 +23,50 @@
       "photo": "/assets/uploads/photo_2025-08-20_11-42-07.jpg"
     }
   ],
-  "coaches": [],
+  "coaches": [
+    {
+      "name": "1",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "1",
+      "photo": "/assets/uploads/photo_1_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "2",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "2",
+      "photo": "/assets/uploads/photo_2_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "3",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "3",
+      "photo": "/assets/uploads/photo_3_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "4",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "4",
+      "photo": "/assets/uploads/photo_4_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "5",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "5",
+      "photo": "/assets/uploads/photo_6_2025-08-20_10-44-34.jpg"
+    },
+    {
+      "name": "6",
+      "role": "Тренер",
+      "department": "Футбол",
+      "description": "6",
+      "photo": "/assets/uploads/photo_7_2025-08-20_10-44-34.jpg"
+    }
+  ],
   "news": [
     {
       "title": "Відбудова спорткомплексу: стартує реконструкція",
