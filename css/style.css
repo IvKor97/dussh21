@@ -427,3 +427,32 @@ section h2 {
 @media (max-width: 480px) {
   .hero-logo { max-width: 120px; }
 }
+/* Логотип у hero-блоці */
+.hero-logo {
+  display: block;
+  margin: 0 auto 40px;   /* більше простору під логотипом */
+  max-width: 260px;      /* збільшений розмір */
+  height: auto;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,0.45)); /* легка тінь для акценту */
+  transition: transform 0.3s ease; /* плавний ефект */
+}
+
+.hero-logo:hover {
+  transform: scale(1.05); /* при наведенні трохи збільшується */
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 200px;    /* на планшетах і мобільних — трохи менше */
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 150px;    /* на дуже малих екранах */
+    margin-bottom: 24px;
+  }
+}
+
