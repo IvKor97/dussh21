@@ -1,12 +1,19 @@
 {
-  "hero_title": "ДЮСШ-21",
-  "hero_subtitle": "Місце, де діти ростуть спортсменами — від першого удару до першої медалі!",
+  "coaches": [],
+  "footer_text": "© ДЮСШ-21",
+  "base": [],
   "school_description": "Опис школи тут. **Жирний текст**, абзаци та інше через Markdown.",
   "contacts": "Адреса: ...\n\nТелефон: ...\n\nEmail: ...",
-  "footer_text": "© ДЮСШ-21",
-  "administration": [],
-  "coaches": [],
-  "base": [],
+  "hero_title": "ДЮСШ-21",
+  "news": [],
   "sponsors": [],
-  "news": []
+  "hero_subtitle": "Місце, де діти ростуть спортсменами — від першого удару до першої медалі!",
+  "administration": [
+    {
+      "name": "Яцик Віталій Володимирович",
+      "position": "директор",
+      "photo": "/assets/uploads/photo_2025-10-02_13-45-19.jpg",
+      "description": "1﻿23"
+    }
+  ]
 }
