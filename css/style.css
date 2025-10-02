@@ -418,3 +418,33 @@ section h2 {
   object-fit: contain; /* вписати без обрізання */
   background: #f5f5fa; /* колір полів (можна прозорий) */
 }
+footer .sponsors {
+  margin-top: 40px;
+  text-align: center;
+}
+
+footer .sponsors h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #fff; /* якщо футер темний */
+}
+
+footer .sponsor-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+footer .sponsor-logos img {
+  max-height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1); /* робить логотипи білі на темному фоні */
+  transition: transform 0.2s ease;
+}
+
+footer .sponsor-logos img:hover {
+  transform: scale(1.1);
+}
+
