@@ -165,6 +165,23 @@ button:hover { background: var(--primary-light); }
   text-align: center;
   padding: 20px;
 }
+/* ===== ВИРІВНЮВАННЯ ТЕКСТУ ===== */
+.center-text {
+  text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
 
 
 
