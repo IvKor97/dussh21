@@ -66,3 +66,13 @@ collections:
               - { label: "Адреса", name: "address", widget: "string" }
               - { label: "Телефон", name: "phone", widget: "string" }
               - { label: "Email", name: "email", widget: "string" }
+              collections:
+  - name: "sponsors"
+    label: "Спонсори"
+    folder: "content/sponsors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Назва", name: "title", widget: "string" }
+      - { label: "Посилання", name: "url", widget: "string" }
+      - { label: "Логотип", name: "logo", widget: "image" }
