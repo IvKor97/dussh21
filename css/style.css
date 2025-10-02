@@ -133,6 +133,35 @@ img { max-width: 100%; display: block; }
   text-align: center;
   font-size: .95rem;
 }
+/* Уніфіковані розміри зображень у картках */
+.person img,
+.coach img {
+  width: 100%;
+  height: clamp(180px, 28vh, 240px); /* адаптивна фіксована висота */
+  object-fit: cover;                 /* заповнює, рівно обрізає краї */
+  border-radius: 10px;
+}
+
+.base-item img {
+  width: 100%;
+  height: clamp(160px, 24vh, 220px);
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Обкладинки новин у 16:9 */
+.news-card img {
+  width: 100%;
+  aspect-ratio: 16/9; /* браузери зберігають пропорції */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Якщо десь картинка занадто велика — обмежимо максимальну висоту */
+img {
+  max-height: 80vh;
+}
+
 
 
 
