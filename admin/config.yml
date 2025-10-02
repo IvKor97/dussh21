@@ -5,6 +5,8 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+# publish_mode: editorial_workflow  # розкоментуй, якщо потрібні чернетки/рев'ю
+
 collections:
   - name: "site"
     label: "Вміст сайту"
@@ -15,59 +17,56 @@ collections:
         name: "site"
         fields:
           - { label: "Hero заголовок", name: "hero_title", widget: "string" }
-          - { label: "Hero підзаголовок", name: "hero_subtitle", widget: "markdown" }
-          - { label: "Опис школи", name: "school_description", widget: "markdown" }
-          - { label: "Контакти", name: "contacts", widget: "markdown" }
-          - { label: "Футер", name: "footer_text", widget: "markdown" }
+          - { label: "Hero підзаголовок (Markdown)", name: "hero_subtitle", widget: "markdown" }
+          - { label: "Опис школи (Markdown)", name: "school_description", widget: "markdown" }
+          - { label: "Контакти (Markdown)", name: "contacts", widget: "markdown" }
+          - { label: "Футер (Markdown)", name: "footer_text", widget: "markdown" }
+
           - label: "Керівництво"
             name: "administration"
             widget: "list"
+            summary: "{{fields.name}} — {{fields.position}}"
             fields:
-              - {label: "ПІБ", name: "name", widget: "string"}
-              - {label: "Посада", name: "position", widget: "string"}
-              - {label: "Фото", name: "photo", widget: "image"}
-              - {label: "Опис", name: "description", widget: "markdown"}
+              - { label: "ПІБ", name: "name", widget: "string" }
+              - { label: "Посада", name: "position", widget: "string" }
+              - { label: "Фото", name: "photo", widget: "image" }
+              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+
           - label: "Тренери"
             name: "coaches"
             widget: "list"
+            summary: "{{fields.name}}"
             fields:
-              - {label: "ПІБ", name: "name", widget: "string"}
-              - {label: "Телефон", name: "phone", widget: "string", required: false}
-              - {label: "Фото", name: "photo", widget: "image"}
-              - {label: "Опис", name: "description", widget: "markdown"}
+              - { label: "ПІБ", name: "name", widget: "string" }
+              - { label: "Телефон", name: "phone", widget: "string", required: false }
+              - { label: "Фото", name: "photo", widget: "image" }
+              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+
           - label: "База"
             name: "base"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
-              - {label: "Назва", name: "title", widget: "string"}
-              - {label: "Фото", name: "photo", widget: "image"}
-              - {label: "Опис", name: "description", widget: "markdown"}
+              - { label: "Назва", name: "title", widget: "string" }
+              - { label: "Фото", name: "photo", widget: "image" }
+              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+
           - label: "Спонсори"
             name: "sponsors"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
-              - {label: "Назва", name: "title", widget: "string"}
-              - {label: "URL", name: "url", widget: "string", required: false}
-              - {label: "Логотип", name: "logo", widget: "image"}
-              - {label: "Опис", name: "description", widget: "markdown", required: false}
+              - { label: "Назва", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", required: false }
+              - { label: "Логотип", name: "logo", widget: "image" }
+              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+
           - label: "Новини"
             name: "news"
             widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Дата", name: "date", widget: "datetime"}
-              - {label: "Фото", name: "image", widget: "image", required: false}
-              - {label: "Текст", name: "body", widget: "markdown"}
-              - label: "Контакти"
-            name: "contacts"
-            widget: "object"
-            fields:
-              - { label: "Адреса", name: "address", widget: "markdown" }
-              - { label: "Телефон", name: "phone", widget: "string" }
-              - { label: "Email", name: "email", widget: "string", required: false }
-              - { label: "Соцмережі (Markdown/HTML)", name: "socials", widget: "markdown", required: false }
-
-              
- 
-
-
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Дата", name: "date", widget: "datetime" }
+              - { label: "Фото", name: "image", widget: "image", required: false }
+              - { label: "Текст (Markdown)", name: "body", widget: "markdown" }
