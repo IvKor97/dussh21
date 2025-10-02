@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ДЮСШ-21</title>
 
-  <!-- СТИЛІ (у тебе папка css/) -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
@@ -13,7 +12,6 @@
   <!-- HERO -->
   <header id="hero" class="hero">
     <div class="container">
-      <!-- Логотип школи -->
       <img src="/assets/uploads/images.png" alt="ДЮСШ-21" class="hero-logo" loading="lazy" decoding="async" />
       <h1 id="hero-title"></h1>
       <div id="hero-subtitle"></div>
@@ -68,7 +66,7 @@
     </div>
   </section>
 
-  <!-- КОНТАКТИ (контент із CMS) -->
+  <!-- КОНТАКТИ -->
   <section id="contacts-block" class="section">
     <div class="container">
       <h2>Контакти</h2>
@@ -76,40 +74,69 @@
     </div>
   </section>
 
-  <!-- ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ (Netlify Forms) -->
-  <section id="feedback" class="section">
+  <!-- ФОРМА ЗАПИСУ ДИТИНИ -->
+  <section id="enroll" class="section">
     <div class="container">
-      <h2>Напишіть нам</h2>
+      <h2>Запис дитини на перегляд / у секцію</h2>
 
-      <!-- ВАЖЛИВО: атрибут data-netlify увімкне Netlify Forms -->
-      <form id="contact-form" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <!-- приховане ім'я форми (для Netlify) -->
-        <input type="hidden" name="form-name" value="contact-form" />
-        <!-- honeypot для антиспаму -->
-        <div style="display:none">
+      <form id="enroll-form"
+            name="enroll-form"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="enroll-form" />
+
+        <div style="display:none;">
           <label>Не заповнюйте: <input name="bot-field" /></label>
         </div>
 
         <div class="form-group">
-          <label for="name">Ім’я</label>
-          <input type="text" id="name" name="name" required />
+          <label for="parentName">Ім’я та прізвище одного з батьків</label>
+          <input id="parentName" name="parentName" type="text" required />
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <label for="phone">Телефон для зв’язку</label>
+          <input id="phone" name="phone" type="tel" required />
         </div>
 
         <div class="form-group">
-          <label for="message">Повідомлення</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <label for="email">Email (за бажанням)</label>
+          <input id="email" name="email" type="email" />
         </div>
 
-        <!-- Якщо хочеш reCAPTCHA: розкоментуй наступний рядок і ввімкни reCAPTCHA у Netlify -->
-        <!-- <div data-netlify-recaptcha="true"></div> -->
+        <div class="form-group">
+          <label for="childName">Ім’я та прізвище дитини</label>
+          <input id="childName" name="childName" type="text" required />
+        </div>
 
-        <button type="submit">Надіслати</button>
-        <p id="form-status" class="form-status" aria-live="polite" hidden>Дякуємо! Повідомлення надіслано.</p>
+        <div class="form-group">
+          <label for="birthDate">Дата народження дитини</label>
+          <input id="birthDate" name="birthDate" type="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="sport">Вид спорту</label>
+          <select id="sport" name="sport" required>
+            <option value="">Оберіть секцію</option>
+            <option value="Футбол">Футбол</option>
+            <option value="Гандбол">Гандбол</option>
+            <option value="Плавання">Плавання</option>
+            <option value="Водне поло">Водне поло</option>
+            <option value="Художня гімнастика">Художня гімнастика</option>
+            <option value="Настільний теніс">Настільний теніс</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Додаткова інформація</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Подати заявку</button>
+        <p id="enroll-status" class="form-status" aria-live="polite" hidden>
+          ✅ Дякуємо! Ваша заявка прийнята. Ми з вами зв’яжемося найближчим часом.
+        </p>
       </form>
     </div>
   </section>
@@ -121,117 +148,36 @@
     </div>
   </footer>
 
-  <!-- РЕНДЕР MARKDOWN + ПІДТЯГУВАННЯ ДАНИХ З CMS -->
+  <!-- CMS + форма -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // Підтягуємо контент із Netlify CMS (content/site.json)
+    // CMS контент
     fetch('/content/site.json')
       .then(r => r.json())
       .then(d => {
         const md = s => marked.parse(s || '');
         const $  = id => document.getElementById(id);
-
-        // Тексти
-        if ($('hero-title'))        $('hero-title').textContent = d.hero_title || '';
-        if ($('hero-subtitle'))     $('hero-subtitle').innerHTML = md(d.hero_subtitle);
+        if ($('hero-title')) $('hero-title').textContent = d.hero_title || '';
+        if ($('hero-subtitle')) $('hero-subtitle').innerHTML = md(d.hero_subtitle);
         if ($('school-description')) $('school-description').innerHTML = md(d.school_description);
-        if ($('contacts'))          $('contacts').innerHTML = md(d.contacts);
-        if ($('footer-text'))       $('footer-text').innerHTML = md(d.footer_text);
+        if ($('contacts')) $('contacts').innerHTML = md(d.contacts);
+        if ($('footer-text')) $('footer-text').innerHTML = md(d.footer_text);
+      });
 
-        // Хелпер створення елементів із HTML-рядка
-        const el = (html) => {
-          const t = document.createElement('template');
-          t.innerHTML = html.trim();
-          return t.content.firstChild;
-        };
-
-        // Керівництво (портрет 4:5 із фокусом угорі)
-        const adminWrap = $('admin-list');
-        d.administration?.forEach(a => {
-          adminWrap && adminWrap.appendChild(el(`
-            <article class="person">
-              ${a.photo ? `
-                <div class="portrait">
-                  <img src="${a.photo}" alt="${a.name}" loading="lazy" decoding="async">
-                </div>` : ''
-              }
-              <h4>${a.name || ''}</h4>
-              ${a.position ? `<p class="position">${a.position}</p>` : ''}
-              <div class="desc">${md(a.description || '')}</div>
-            </article>
-          `));
-        });
-
-        // Тренери
-        const coachesWrap = $('coaches-list');
-        d.coaches?.forEach(c => {
-          coachesWrap && coachesWrap.appendChild(el(`
-            <article class="coach">
-              ${c.photo ? `
-                <div class="portrait">
-                  <img src="${c.photo}" alt="${c.name}" loading="lazy" decoding="async">
-                </div>` : ''
-              }
-              <h4>${c.name || ''}</h4>
-              ${c.phone ? `<p class="phone">${c.phone}</p>` : ''}
-              <div class="desc">${md(c.description || '')}</div>
-            </article>
-          `));
-        });
-
-        // База
-        const baseWrap = $('base-list');
-        d.base?.forEach(b => {
-          baseWrap && baseWrap.appendChild(el(`
-            <article class="base-item">
-              ${b.photo ? `<img src="${b.photo}" alt="${b.title}" loading="lazy" decoding="async">` : ''}
-              <h4>${b.title || ''}</h4>
-              <div class="desc">${md(b.description || '')}</div>
-            </article>
-          `));
-        });
-
-        // Спонсори
-        const sponsorsWrap = $('sponsors-list');
-        d.sponsors?.forEach(s => {
-          sponsorsWrap && sponsorsWrap.appendChild(el(`
-            <a class="sponsor" href="${s.url || '#'}" target="_blank" rel="noopener">
-              ${s.logo ? `<img src="${s.logo}" alt="${s.title || ''}" loading="lazy" decoding="async">` : `<span>${s.title || ''}</span>`}
-              ${s.description ? `<div class="desc">${md(s.description)}</div>` : ''}
-            </a>
-          `));
-        });
-
-        // Новини
-        const newsWrap = $('news-list');
-        d.news?.forEach(n => {
-          const dateText = n.date ? new Date(n.date).toLocaleDateString('uk-UA') : '';
-          newsWrap && newsWrap.appendChild(el(`
-            <article class="news-card">
-              ${n.image ? `<img src="${n.image}" alt="${n.title || ''}" loading="lazy" decoding="async">` : ''}
-              <h4>${n.title || ''}</h4>
-              ${dateText ? `<time datetime="${n.date}">${dateText}</time>` : ''}
-              <div class="body">${md(n.body || '')}</div>
-            </article>
-          `));
-        });
-      })
-      .catch(console.error);
-
-    // Невеличкий UX: після успішної відправки показати повідомлення без редіректу
-    const form = document.getElementById('contact-form');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
+    // Форма з підтвердженням
+    const enrollForm = document.getElementById('enroll-form');
+    if (enrollForm) {
+      enrollForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const status = document.getElementById('form-status');
-        const data = new FormData(form);
+        const status = document.getElementById('enroll-status');
+        const data = new FormData(enrollForm);
         try {
           const res = await fetch('/', { method: 'POST', body: data });
           if (res.ok) {
             status.hidden = false;
-            form.reset();
+            enrollForm.reset();
           } else {
-            alert('Сталася помилка під час надсилання. Спробуйте ще раз.');
+            alert('Сталася помилка. Спробуйте ще раз.');
           }
         } catch (err) {
           alert('Сталася помилка мережі. Спробуйте ще раз.');
