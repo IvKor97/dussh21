@@ -17,10 +17,10 @@ collections:
         name: "site"
         fields:
           - { label: "Hero заголовок", name: "hero_title", widget: "string" }
-          - { label: "Hero підзаголовок (Markdown)", name: "hero_subtitle", widget: "markdown" }
-          - { label: "Опис школи (Markdown)", name: "school_description", widget: "markdown" }
-          - { label: "Контакти (Markdown)", name: "contacts", widget: "markdown" }
-          - { label: "Футер (Markdown)", name: "footer_text", widget: "markdown" }
+          - { label: "Hero підзаголовок (Markdown)", name: "hero_subtitle", widget: "richtext" }
+          - { label: "Опис школи (Markdown)", name: "school_description", widget: "richtext" }
+          - { label: "Контакти (Markdown)", name: "contacts", widget: "richtext" }
+          - { label: "Футер (Markdown)", name: "footer_text", widget: "richtext" }
 
           - label: "Керівництво"
             name: "administration"
@@ -30,7 +30,7 @@ collections:
               - { label: "ПІБ", name: "name", widget: "string" }
               - { label: "Посада", name: "position", widget: "string" }
               - { label: "Фото", name: "photo", widget: "image" }
-              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+              - { label: "Опис (Markdown)", name: "description", widget: "richtext", required: false }
 
           - label: "Тренери"
             name: "coaches"
@@ -40,7 +40,7 @@ collections:
               - { label: "ПІБ", name: "name", widget: "string" }
               - { label: "Телефон", name: "phone", widget: "string", required: false }
               - { label: "Фото", name: "photo", widget: "image" }
-              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+              - { label: "Опис (Markdown)", name: "description", widget: "richtext", required: false }
 
           - label: "База"
             name: "base"
@@ -49,7 +49,7 @@ collections:
             fields:
               - { label: "Назва", name: "title", widget: "string" }
               - { label: "Фото", name: "photo", widget: "image" }
-              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+              - { label: "Опис (Markdown)", name: "description", widget: "richtext", required: false }
 
           - label: "Спонсори"
             name: "sponsors"
@@ -59,7 +59,7 @@ collections:
               - { label: "Назва", name: "title", widget: "string" }
               - { label: "URL", name: "url", widget: "string", required: false }
               - { label: "Логотип", name: "logo", widget: "image" }
-              - { label: "Опис (Markdown)", name: "description", widget: "markdown", required: false }
+              - { label: "Опис (Markdown)", name: "description", widget: "richtext", required: false }
 
           - label: "Новини"
             name: "news"
@@ -69,5 +69,5 @@ collections:
               - { label: "Заголовок", name: "title", widget: "string" }
               - { label: "Дата", name: "date", widget: "datetime" }
               - { label: "Фото", name: "image", widget: "image", required: false }
-              - { label: "Текст (Markdown)", name: "body", widget: "markdown" }
+              - { label: "Текст (Markdown)", name: "body", widget: "richtext" }
 
