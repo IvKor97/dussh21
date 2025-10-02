@@ -1,5 +1,5 @@
 :root {
-  --primary: #5a2ca0;
+  --primary: #5a2ca0;          /* Фіолетовий основний */
   --primary-light: #7c4dff;
   --text-dark: #222;
   --bg: #fff;
@@ -70,48 +70,48 @@ img { display: block; max-width: 100%; height: auto; }
 .position, .phone { margin: 0 0 8px; color: #555; font-size: .95rem; }
 .desc { text-align: left; font-size: .95rem; line-height: 1.55; }
 
-/* ===== ЗОБРАЖЕННЯ: ФІКСОВАНІ ВИСОТИ + CONTAIN + РАМКА/ТІНЬ ===== */
+/* ===== ЗОБРАЖЕННЯ ===== */
 /* Керівництво/Тренери */
 .person img, .coach img {
   width: 100%;
-  height: 300px;               /* однакова висота */
-  object-fit: contain;         /* не обрізаємо */
+  height: 300px;
+  object-fit: contain;
   background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;      /* тонка рамка */
-  box-shadow: 0 2px 6px rgba(0,0,0,.08); /* легка тінь */
+  border: 2px solid var(--primary); 
+  box-shadow: 0 2px 6px rgba(90, 44, 160, .2);
 }
 
 /* База */
 .base-item img {
   width: 100%;
-  height: 400px;               /* однакова висота */
+  height: 400px;
   object-fit: contain;
   background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(90, 44, 160, .2);
 }
 
 /* Новини */
 .news-card img {
   width: 100%;
-  height: 250px;               /* однакова висота */
+  height: 250px;
   object-fit: contain;
   background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(90, 44, 160, .2);
 }
 
-/* Спонсори (логотипи) */
+/* Спонсори */
 .sponsors { background: #fafafa; }
 .logos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .sponsor img {
-  height: 120px;               /* однакова висота */
+  height: 120px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -119,14 +119,14 @@ img { display: block; max-width: 100%; height: auto; }
   background: #fff;
   padding: 8px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(90, 44, 160, .2);
 }
 
 /* ===== КОНТАКТИ ===== */
 #contacts { text-align: center; font-size: 1rem; line-height: 1.65; }
 
-/* ===== ФОРМА (енрол) ===== */
+/* ===== ФОРМА ===== */
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -165,4 +165,5 @@ button:hover { background: var(--primary-light); }
   text-align: center;
   padding: 20px;
 }
+
 
