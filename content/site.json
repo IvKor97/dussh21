@@ -47,6 +47,11 @@
       "logo": "/assets/uploads/swift-logo.png",
       "title": "SWIFT",
       "url": "https://market.swift.ua/"
+    },
+    {
+      "title": "ITAK",
+      "logo": "/assets/uploads/logo_itak.png",
+      "url": "https://itak.ua/"
     }
   ],
   "hero_subtitle": "\n\n<div class=\"center-text\">\nМісце, де діти ростуть спортсменами — від першого удару до першої медалі!\n</div>",
