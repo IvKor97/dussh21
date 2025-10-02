@@ -410,3 +410,11 @@ section h2 {
     display: flex;
   }
 }
+/* Наприклад, для новин/галереї */
+.news .card img,
+.base .card img {
+  width: 100%;
+  height: 220px;       /* ваша бажана висота */
+  object-fit: contain; /* вписати без обрізання */
+  background: #f5f5fa; /* колір полів (можна прозорий) */
+}
