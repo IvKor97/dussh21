@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ДЮСШ-21 — Адмінка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Підключаємо Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Функція для створення блоків вирівнювання
+      function blockComponent({ id, label, className }) {
+        return {
+          id,
+          label,
+          fields: [{ name: "content", label: "Текст", widget: "markdown" }],
+          pattern: new RegExp(
+            `^<div class="${className}">([\\s\\S]*?)<\\/div>$`,
+            "m"
+          ),
+          fromBlock: (match) => ({ content: match && match[1] ? match[1] : "" }),
+          toBlock: (obj) =>
+            `<div class="${className}">\n${(obj.content || "").trim()}\n</div>`,
+          toPreview: (obj) =>
+            `<div class="${className}">${obj.content || ""}</div>`,
+        };
+      }
+
+      // Реєструємо компоненти для вирівнювання
+      CMS.registerEditorComponent(
+        blockComponent({
+          id: "center",
+          label: "Центрований блок",
+          className: "center-text",
+        })
+      );
+      CMS.registerEditorComponent(
+        blockComponent({
+          id: "right",
+          label: "Праворуч",
+          className: "right-text",
+        })
+      );
+      CMS.registerEditorComponent(
+        blockComponent({
+          id: "justify",
+          label: "По ширині",
+          className: "justify-text",
+        })
+      );
+
+      // Ініціалізація CMS з твоїм конфіком
+      CMS.init({
+        config: "/admin/config.yml",
+        load_config_file: false,
+        editor: { previewStyles: ["/css/style.css"] },
+      });
+    </script>
+  </body>
+</html>
