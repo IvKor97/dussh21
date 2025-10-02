@@ -6,87 +6,68 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  # === Головна сторінка ===
-  - name: "pages"
-    label: "Тексти сторінок"
+  - name: "site"
+    label: "Вміст сайту"
     files:
-      - file: "content/home.md"
-        label: "Головна сторінка"
-        name: "home"
+      - file: "content/site.json"
+        format: "json"
+        label: "Дані сайту"
+        name: "site"
         fields:
           - { label: "Hero заголовок", name: "hero_title", widget: "string" }
           - { label: "Hero підзаголовок", name: "hero_subtitle", widget: "markdown" }
           - { label: "Опис школи", name: "school_description", widget: "markdown" }
+          - { label: "Контакти", name: "contacts", widget: "markdown" }
           - { label: "Футер", name: "footer_text", widget: "markdown" }
+          - label: "Керівництво"
+            name: "administration"
+            widget: "list"
+            fields:
+              - {label: "ПІБ", name: "name", widget: "string"}
+              - {label: "Посада", name: "position", widget: "string"}
+              - {label: "Фото", name: "photo", widget: "image"}
+              - {label: "Опис", name: "description", widget: "markdown"}
+          - label: "Тренери"
+            name: "coaches"
+            widget: "list"
+            fields:
+              - {label: "ПІБ", name: "name", widget: "string"}
+              - {label: "Телефон", name: "phone", widget: "string", required: false}
+              - {label: "Фото", name: "photo", widget: "image"}
+              - {label: "Опис", name: "description", widget: "markdown"}
+          - label: "База"
+            name: "base"
+            widget: "list"
+            fields:
+              - {label: "Назва", name: "title", widget: "string"}
+              - {label: "Фото", name: "photo", widget: "image"}
+              - {label: "Опис", name: "description", widget: "markdown"}
+          - label: "Спонсори"
+            name: "sponsors"
+            widget: "list"
+            fields:
+              - {label: "Назва", name: "title", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Логотип", name: "logo", widget: "image"}
+              - {label: "Опис", name: "description", widget: "markdown", required: false}
+          - label: "Новини"
+            name: "news"
+            widget: "list"
+            fields:
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Дата", name: "date", widget: "datetime"}
+              - {label: "Фото", name: "image", widget: "image", required: false}
+              - {label: "Текст", name: "body", widget: "markdown"}
+              - label: "Контакти"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Адреса", name: "address", widget: "markdown" }
+              - { label: "Телефон", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Соцмережі (Markdown/HTML)", name: "socials", widget: "markdown", required: false }
 
-  # === Адміністрація ===
-  - name: "administration"
-    label: "Керівництво"
-    folder: "content/administration"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "ПІБ", name: "name", widget: "string" }
-      - { label: "Посада", name: "position", widget: "string" }
-      - { label: "Фото", name: "photo", widget: "image" }
-      - { label: "Опис", name: "description", widget: "markdown" }
+              
+ 
 
-  # === Тренери ===
-  - name: "coaches"
-    label: "Тренери"
-    folder: "content/coaches"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "ПІБ", name: "name", widget: "string" }
-      - { label: "Телефон", name: "phone", widget: "string", required: false }
-      - { label: "Фото", name: "photo", widget: "image" }
-      - { label: "Опис", name: "description", widget: "markdown" }
-
-  # === Тренувальна база ===
-  - name: "base"
-    label: "Тренувальна база"
-    folder: "content/base"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Назва об’єкта", name: "title", widget: "string" }
-      - { label: "Фото", name: "photo", widget: "image" }
-      - { label: "Опис", name: "description", widget: "markdown" }
-
-  # === Новини ===
-  - name: "news"
-    label: "Новини"
-    folder: "content/news"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Заголовок", name: "title", widget: "string" }
-      - { label: "Дата", name: "date", widget: "datetime" }
-      - { label: "Фото", name: "image", widget: "image", required: false }
-      - { label: "Текст новини", name: "body", widget: "markdown" }
-
-  # === Спонсори ===
-  - name: "sponsors"
-    label: "Спонсори"
-    folder: "content/sponsors"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Назва", name: "title", widget: "string" }
-      - { label: "Посилання", name: "url", widget: "string", required: false }
-      - { label: "Логотип", name: "logo", widget: "image" }
-      - { label: "Опис", name: "description", widget: "markdown", required: false }
-
-  # === Контакти ===
-  - name: "contacts"
-    label: "Контакти"
-    folder: "content/contacts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Адреса", name: "address", widget: "markdown" }
-      - { label: "Телефон", name: "phone", widget: "string" }
-      - { label: "Email", name: "email", widget: "string", required: false }
-      - { label: "Соцмережі (Markdown/HTML)", name: "socials", widget: "markdown", required: false }
 
