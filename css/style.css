@@ -161,6 +161,28 @@ img { max-width: 100%; display: block; }
 img {
   max-height: 80vh;
 }
+/* Портрети за замовчуванням (мобайл/планшет) */
+.person img,
+.coach img {
+  width: 100%;
+  height: clamp(200px, 35vw, 260px);
+  object-fit: cover;
+  object-position: 50% 20%; /* трохи вище центру — видно обличчя */
+  border-radius: 12px;
+}
+
+/* На широких екранах даємо більше висоти, щоб не «лупило» в обличчя */
+@media (min-width: 992px) {
+  .person img,
+  .coach img {
+    height: 340px;         /* підбери 320–380 під свої фото */
+    object-position: 50% 15%;
+  }
+}
+
+/* Якщо певне фото треба ще вище — додай йому клас через CMS: class="focus-top" */
+.focus-top { object-position: 50% 10% !important; }
+
 
 
 
