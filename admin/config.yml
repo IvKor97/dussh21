@@ -35,13 +35,16 @@ collections:
               - { label: "Назва", name: "name", widget: "string" }
               - { label: "Опис", name: "description", widget: "text" }
               - { label: "Фото", name: "photo", widget: "image" }
-          - label: "Тренери"
-            name: "coaches"
-            widget: "list"
-            summary: "{{fields.name}} — {{fields.department}}"
-            fields:
-              - { label: "Ім’я", name: "name", widget: "string" }
-              - { label: "Роль", name: "role", widget: "string" }
+           - name: "coaches"
+    label: "Тренери"
+    folder: "content/coaches"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "ПІБ", name: "name", widget: "string" }
+      - { label: "Телефон", name: "phone", widget: "string", required: false }
+      - { label: "Фото", name: "photo", widget: "image" }
+      - { label: "Опис (Markdown)", name: "description", widget: "markdown", hint: "Можна робити жирний текст, абзаци, центрувати через HTML" }
               - label: "Відділ"
                 name: "department"
                 widget: "select"
