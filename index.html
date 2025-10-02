@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ДЮСШ-21</title>
 
-  <!-- СТИЛІ (у тебе папка css/, не assets/css/) -->
+  <!-- СТИЛІ (у тебе папка css/) -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
   <!-- HERO -->
   <header id="hero" class="hero">
-  <div class="container">
-    <img src="/assets/uploads/images.png" alt="ДЮСШ-21" class="hero-logo" />
-    <h1 id="hero-title"></h1>
-    <div id="hero-subtitle"></div>
-  </div>
-</header>
-
+    <div class="container">
+      <!-- Логотип школи -->
+      <img src="/assets/uploads/images.png" alt="ДЮСШ-21" class="hero-logo" loading="lazy" decoding="async" />
+      <h1 id="hero-title"></h1>
+      <div id="hero-subtitle"></div>
+    </div>
+  </header>
 
   <!-- ПРО ШКОЛУ -->
   <section id="about" class="section">
@@ -86,33 +86,37 @@
   <!-- РЕНДЕР MARKDOWN + ПІДТЯГУВАННЯ ДАНИХ З CMS -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // Тягнемо контент, який редагується в CMS
+    // Підтягуємо контент, який редагуєш у Netlify CMS (content/site.json)
     fetch('/content/site.json')
       .then(r => r.json())
       .then(d => {
         const md = s => marked.parse(s || '');
-        const $ = id => document.getElementById(id);
+        const $  = id => document.getElementById(id);
 
         // Тексти
-        if ($('hero-title')) $('hero-title').textContent = d.hero_title || '';
-        if ($('hero-subtitle')) $('hero-subtitle').innerHTML = md(d.hero_subtitle);
-        if ($('school-description')) $('school-description').innerHTML = md(d.school_description);
-        if ($('contacts')) $('contacts').innerHTML = md(d.contacts);
-        if ($('footer-text')) $('footer-text').innerHTML = md(d.footer_text);
+        if ($('hero-title'))       $('hero-title').textContent = d.hero_title || '';
+        if ($('hero-subtitle'))    $('hero-subtitle').innerHTML = md(d.hero_subtitle);
+        if ($('school-description'))$('school-description').innerHTML = md(d.school_description);
+        if ($('contacts'))         $('contacts').innerHTML = md(d.contacts);
+        if ($('footer-text'))      $('footer-text').innerHTML = md(d.footer_text);
 
-        // Хелпер елементів
+        // Хелпер створення елементів із HTML-рядка
         const el = (html) => {
           const t = document.createElement('template');
           t.innerHTML = html.trim();
           return t.content.firstChild;
         };
 
-        // Керівництво
+        // Керівництво (портрет 4:5 із фокусом угорі)
         const adminWrap = $('admin-list');
         d.administration?.forEach(a => {
           adminWrap && adminWrap.appendChild(el(`
             <article class="person">
-              ${a.photo ? `<img src="${a.photo}" alt="${a.name}">` : ''}
+              ${a.photo ? `
+                <div class="portrait">
+                  <img src="${a.photo}" alt="${a.name}" loading="lazy" decoding="async">
+                </div>` : ''
+              }
               <h4>${a.name || ''}</h4>
               ${a.position ? `<p class="position">${a.position}</p>` : ''}
               <div class="desc">${md(a.description || '')}</div>
@@ -125,7 +129,11 @@
         d.coaches?.forEach(c => {
           coachesWrap && coachesWrap.appendChild(el(`
             <article class="coach">
-              ${c.photo ? `<img src="${c.photo}" alt="${c.name}">` : ''}
+              ${c.photo ? `
+                <div class="portrait">
+                  <img src="${c.photo}" alt="${c.name}" loading="lazy" decoding="async">
+                </div>` : ''
+              }
               <h4>${c.name || ''}</h4>
               ${c.phone ? `<p class="phone">${c.phone}</p>` : ''}
               <div class="desc">${md(c.description || '')}</div>
@@ -138,7 +146,7 @@
         d.base?.forEach(b => {
           baseWrap && baseWrap.appendChild(el(`
             <article class="base-item">
-              ${b.photo ? `<img src="${b.photo}" alt="${b.title}">` : ''}
+              ${b.photo ? `<img src="${b.photo}" alt="${b.title}" loading="lazy" decoding="async">` : ''}
               <h4>${b.title || ''}</h4>
               <div class="desc">${md(b.description || '')}</div>
             </article>
@@ -150,7 +158,7 @@
         d.sponsors?.forEach(s => {
           sponsorsWrap && sponsorsWrap.appendChild(el(`
             <a class="sponsor" href="${s.url || '#'}" target="_blank" rel="noopener">
-              ${s.logo ? `<img src="${s.logo}" alt="${s.title || ''}">` : `<span>${s.title || ''}</span>`}
+              ${s.logo ? `<img src="${s.logo}" alt="${s.title || ''}" loading="lazy" decoding="async">` : `<span>${s.title || ''}</span>`}
               ${s.description ? `<div class="desc">${md(s.description)}</div>` : ''}
             </a>
           `));
@@ -162,7 +170,7 @@
           const dateText = n.date ? new Date(n.date).toLocaleDateString('uk-UA') : '';
           newsWrap && newsWrap.appendChild(el(`
             <article class="news-card">
-              ${n.image ? `<img src="${n.image}" alt="${n.title || ''}">` : ''}
+              ${n.image ? `<img src="${n.image}" alt="${n.title || ''}" loading="lazy" decoding="async">` : ''}
               <h4>${n.title || ''}</h4>
               ${dateText ? `<time datetime="${n.date}">${dateText}</time>` : ''}
               <div class="body">${md(n.body || '')}</div>
