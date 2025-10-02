@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ДЮСШ-21</title>
 
-  <!-- ТВОЇ СТИЛІ (залиш свої підключення, якщо були) -->
+  <!-- ПІДКЛЮЧИ СВОЇ ШРИФТИ/ІКОНКИ/МЕТА за потреби -->
+
+  <!-- СТИЛІ САЙТУ -->
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
@@ -13,7 +15,8 @@
   <!-- HERO -->
   <header id="hero" class="hero">
     <div class="container">
-      <!-- Якщо маєш логотип у Hero — залиш свій <img class="hero-logo" ...> -->
+      <!-- ЛОГО (опційно) -->
+      <!-- <img src="/assets/uploads/images.png" alt="ДЮСШ-21" class="hero-logo" /> -->
       <h1 id="hero-title"></h1>
       <div id="hero-subtitle"></div>
     </div>
@@ -51,7 +54,7 @@
     </div>
   </section>
 
-  <!-- СПОНСОРИ (новий блок у футері/перед футером) -->
+  <!-- СПОНСОРИ -->
   <section id="sponsors" class="section sponsors">
     <div class="container">
       <h2>Наші спонсори</h2>
@@ -85,6 +88,7 @@
   <!-- РЕНДЕР MARKDOWN + ПІДТЯГУВАННЯ ДАНИХ З CMS -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
+    // Підтягнути дані з content/site.json, який редагуєш у CMS
     fetch('/content/site.json')
       .then(r => r.json())
       .then(d => {
@@ -98,7 +102,7 @@
         if ($('contacts')) $('contacts').innerHTML = md(d.contacts);
         if ($('footer-text')) $('footer-text').innerHTML = md(d.footer_text);
 
-        // Хелпер для створення елементів з HTML
+        // Хелпер: створити елемент із HTML-рядка
         const el = (html) => {
           const t = document.createElement('template');
           t.innerHTML = html.trim();
