@@ -14,6 +14,18 @@
       "position": "директор",
       "photo": "/assets/uploads/photo_2025-10-02_13-45-19.jpg",
       "description": "1﻿23"
+    },
+    {
+      "name": "Кучер Кирило Валерійович",
+      "position": "Інструктор-методист",
+      "photo": "/assets/uploads/photo_2025-10-02_13-45-17.jpg",
+      "description": "1﻿23"
+    },
+    {
+      "name": "Самойлов Олексій Валерійович",
+      "position": "Інструктор-методист",
+      "photo": "/assets/uploads/photo_2025-10-02_13-38-39.jpg",
+      "description": "Організація та координація навчально-тренувального процесу у ДЮСШ"
     }
   ]
 }
