@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ДЮСШ-21</title>
 
+  <!-- СТИЛІ (твій файл) -->
   <link rel="stylesheet" href="/css/style.css" />
+  <!-- Favicon (за потреби) -->
+  <!-- <link rel="icon" href="/assets/uploads/favicon.png"> -->
 </head>
 <body>
 
   <!-- HERO -->
   <header id="hero" class="hero">
     <div class="container">
+      <!-- Логотип школи у Hero -->
       <img src="/assets/uploads/images.png" alt="ДЮСШ-21" class="hero-logo" loading="lazy" decoding="async" />
       <h1 id="hero-title"></h1>
       <div id="hero-subtitle"></div>
@@ -66,7 +70,7 @@
     </div>
   </section>
 
-  <!-- КОНТАКТИ -->
+  <!-- КОНТАКТИ (контент із CMS) -->
   <section id="contacts-block" class="section">
     <div class="container">
       <h2>Контакти</h2>
@@ -86,6 +90,7 @@
             netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="enroll-form" />
 
+        <!-- honeypot для антиспаму -->
         <div style="display:none;">
           <label>Не заповнюйте: <input name="bot-field" /></label>
         </div>
@@ -148,23 +153,114 @@
     </div>
   </footer>
 
-  <!-- CMS + форма -->
+  <!-- РЕНДЕР MARKDOWN + ПІДТЯГУВАННЯ ДАНИХ З CMS -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // CMS контент
+    // Підтягуємо контент із Netlify CMS (content/site.json) та рендеримо всі блоки
     fetch('/content/site.json')
       .then(r => r.json())
       .then(d => {
         const md = s => marked.parse(s || '');
         const $  = id => document.getElementById(id);
-        if ($('hero-title')) $('hero-title').textContent = d.hero_title || '';
-        if ($('hero-subtitle')) $('hero-subtitle').innerHTML = md(d.hero_subtitle);
-        if ($('school-description')) $('school-description').innerHTML = md(d.school_description);
-        if ($('contacts')) $('contacts').innerHTML = md(d.contacts);
-        if ($('footer-text')) $('footer-text').innerHTML = md(d.footer_text);
-      });
 
-    // Форма з підтвердженням
+        // ===== ТЕКСТОВІ ПОЛЯ =====
+        if ($('hero-title'))         $('hero-title').textContent = d.hero_title || '';
+        if ($('hero-subtitle'))      $('hero-subtitle').innerHTML = md(d.hero_subtitle);
+        if ($('school-description'))  $('school-description').innerHTML = md(d.school_description);
+        if ($('contacts'))           $('contacts').innerHTML = md(d.contacts);
+        if ($('footer-text'))        $('footer-text').innerHTML = md(d.footer_text);
+
+        // ===== ХЕЛПЕР СТВОРЕННЯ ЕЛЕМЕНТІВ =====
+        const el = (html) => {
+          const t = document.createElement('template');
+          t.innerHTML = html.trim();
+          return t.content.firstChild;
+        };
+
+        // ===== КЕРІВНИЦТВО =====
+        const adminWrap = $('admin-list');
+        if (adminWrap && Array.isArray(d.administration)) {
+          d.administration.forEach(a => {
+            adminWrap.appendChild(el(`
+              <article class="person">
+                ${a.photo ? `
+                  <div class="portrait">
+                    <img src="${a.photo}" alt="${a.name||''}" loading="lazy" decoding="async">
+                  </div>` : ''
+                }
+                <h4>${a.name || ''}</h4>
+                ${a.position ? `<p class="position">${a.position}</p>` : ''}
+                <div class="desc">${md(a.description || '')}</div>
+              </article>
+            `));
+          });
+        }
+
+        // ===== ТРЕНЕРИ =====
+        const coachesWrap = $('coaches-list');
+        if (coachesWrap && Array.isArray(d.coaches)) {
+          d.coaches.forEach(c => {
+            coachesWrap.appendChild(el(`
+              <article class="coach">
+                ${c.photo ? `
+                  <div class="portrait">
+                    <img src="${c.photo}" alt="${c.name||''}" loading="lazy" decoding="async">
+                  </div>` : ''
+                }
+                <h4>${c.name || ''}</h4>
+                ${c.phone ? `<p class="phone">${c.phone}</p>` : ''}
+                <div class="desc">${md(c.description || '')}</div>
+              </article>
+            `));
+          });
+        }
+
+        // ===== БАЗА =====
+        const baseWrap = $('base-list');
+        if (baseWrap && Array.isArray(d.base)) {
+          d.base.forEach(b => {
+            baseWrap.appendChild(el(`
+              <article class="base-item">
+                ${b.photo ? `<img src="${b.photo}" alt="${b.title||''}" loading="lazy" decoding="async">` : ''}
+                <h4>${b.title || ''}</h4>
+                <div class="desc">${md(b.description || '')}</div>
+              </article>
+            `));
+          });
+        }
+
+        // ===== СПОНСОРИ =====
+        const sponsorsWrap = $('sponsors-list');
+        if (sponsorsWrap && Array.isArray(d.sponsors)) {
+          d.sponsors.forEach(s => {
+            sponsorsWrap.appendChild(el(`
+              <a class="sponsor" href="${s.url || '#'}" target="_blank" rel="noopener">
+                ${s.logo ? `<img src="${s.logo}" alt="${s.title||''}" loading="lazy" decoding="async">` : `<span>${s.title || ''}</span>`}
+                ${s.description ? `<div class="desc">${md(s.description)}</div>` : ''}
+              </a>
+            `));
+          });
+        }
+
+        // ===== НОВИНИ =====
+        const newsWrap = $('news-list');
+        if (newsWrap && Array.isArray(d.news)) {
+          d.news.forEach(n => {
+            const dateText = n.date ? new Date(n.date).toLocaleDateString('uk-UA') : '';
+            newsWrap.appendChild(el(`
+              <article class="news-card">
+                ${n.image ? `<img src="${n.image}" alt="${n.title||''}" loading="lazy" decoding="async">` : ''}
+                <h4>${n.title || ''}</h4>
+                ${dateText ? `<time datetime="${n.date}">${dateText}</time>` : ''}
+                <div class="body">${md(n.body || '')}</div>
+              </article>
+            `));
+          });
+        }
+      })
+      .catch(console.error);
+
+    // ===== ФОРМА ЗАПИСУ: підтвердження без редіректу =====
     const enrollForm = document.getElementById('enroll-form');
     if (enrollForm) {
       enrollForm.addEventListener('submit', async (e) => {
@@ -187,5 +283,4 @@
   </script>
 </body>
 </html>
-
 
