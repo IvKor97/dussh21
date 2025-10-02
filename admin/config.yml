@@ -5,7 +5,7 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-# publish_mode: editorial_workflow  # розкоментуй, якщо потрібні чернетки/рев'ю
+# publish_mode: editorial_workflow  # увімкни, якщо потрібні чернетки/рев'ю
 
 collections:
   - name: "site"
@@ -70,3 +70,4 @@ collections:
               - { label: "Дата", name: "date", widget: "datetime" }
               - { label: "Фото", name: "image", widget: "image", required: false }
               - { label: "Текст (Markdown)", name: "body", widget: "markdown" }
+
