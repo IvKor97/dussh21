@@ -1,5 +1,5 @@
 :root {
-  --primary: #6a0dad;   /* насичений фіолетовий */
+  --primary: #6a0dad;
   --primary-light: #8c30f5;
   --text-dark: #222;
   --text-light: #fff;
@@ -91,7 +91,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 12px;
   width: 100%;
   height: auto;          /* без обрізання */
-  object-fit: contain;   /* якщо є фіксована висота, не обрізаємо */
+  object-fit: contain;   /* якщо даси фіксовану висоту — не обрізає */
 }
 .person h4, .coach h4, .base-item h4, .news-card h4 {
   font-size: 1.15rem;
@@ -133,5 +133,6 @@ img { max-width: 100%; display: block; }
   text-align: center;
   font-size: .95rem;
 }
+
 
 
