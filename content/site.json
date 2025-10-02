@@ -39,19 +39,19 @@
   ],
   "sponsors": [
     {
+      "logo": "/assets/uploads/itak-logo-news.jpg",
+      "title": "ITAK",
+      "url": "https://itak.ua/"
+    },
+    {
       "logo": "/assets/uploads/gladpharm.jpg",
       "title": "Gladpharm",
       "url": "https://gladpharm.com/"
     },
     {
-      "logo": "/assets/uploads/swift-logo.png",
       "title": "SWIFT",
+      "logo": "/assets/uploads/swift-logo.png",
       "url": "https://market.swift.ua/"
-    },
-    {
-      "title": "ITAK",
-      "logo": "/assets/uploads/itak-logo-news.jpg",
-      "url": "https://itak.ua/"
     }
   ],
   "hero_subtitle": "\n\n<div class=\"center-text\">\nМісце, де діти ростуть спортсменами — від першого удару до першої медалі!\n</div>",
