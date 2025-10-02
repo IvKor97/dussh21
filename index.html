@@ -1,169 +1,175 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head><script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ДЮСШ‑21 | Дитяча футбольна школа</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
-  <!--
-    Сторінка побудована для дитячо‑юнацької спортивної школи «ДЮСШ‑21».
-    Контент підтягується з файлу data/site.json через простий скрипт.
-    Для редагування інформації використовуйте Netlify CMS (розділ /admin/).
-  -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ДЮСШ-21</title>
+
+  <!-- ТВОЇ СТИЛІ (залиш свої підключення, якщо були) -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <header id="header">
+
+  <!-- HERO -->
+  <header id="hero" class="hero">
     <div class="container">
-      <div class="logo">
-        <!-- Текстовий варіант логотипу. Замініть на зображення при потребі -->
-        <span class="logo-text">ДЮСШ‑21</span>
-      </div>
-      <nav id="nav">
-        <ul>
-          <li><a href="#hero">Головна</a></li>
-          <li><a href="#admin">Керівництво</a></li>
-          <li><a href="#base">База</a></li>
-          <li><a href="#coaches">Тренери</a></li>
-          <li><a href="#news">Новини</a></li>
-          <li><a href="#contacts">Контакти</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" aria-label="Перемкнути меню">
-        <!-- Іконка бургеру -->
-        <span></span><span></span><span></span>
-      </button>
+      <!-- Якщо маєш логотип у Hero — залиш свій <img class="hero-logo" ...> -->
+      <h1 id="hero-title"></h1>
+      <div id="hero-subtitle"></div>
     </div>
   </header>
 
-  <!-- Герой/вітальний блок -->
-  <section id="hero" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <img class="hero-logo" src="/assets/uploads/images.png" alt="Логотип ДЮСШ-21">
-      <h1 id="hero-title">ДЮСШ‑21</h1>
-      <p id="hero-subtitle">Юнацька футбольна школа Києва</p>
-      <div class="hero-buttons">
-        <a href="#contacts" class="btn btn-primary">Записатися</a>
-        <a href="#coaches" class="btn btn-secondary">Дізнатися більше</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Блок про школу -->
-  <section id="about" class="about">
+  <!-- ПРО ШКОЛУ -->
+  <section id="about" class="section">
     <div class="container">
       <h2>Про школу</h2>
-      <div id="about-text">
-        <!-- Заповнюється з JSON -->
-      </div>
+      <div id="school-description"></div>
     </div>
   </section>
 
-  <!-- Керівництво школи -->
-  <section id="admin" class="persons">
+  <!-- КЕРІВНИЦТВО -->
+  <section id="administration" class="section">
     <div class="container">
       <h2>Керівництво школи</h2>
-      <div id="administration-list" class="person-grid">
-        <!-- Картки керівництва -->
-      </div>
+      <div id="admin-list" class="person-grid"></div>
     </div>
   </section>
 
-  <!-- База -->
-  <section id="base" class="base">
+  <!-- ТРЕНЕРИ -->
+  <section id="coaches" class="section">
     <div class="container">
-      <h2>Наша база</h2>
-      <div id="base-list" class="base-grid">
-        <!-- Картки об'єктів бази -->
-      </div>
+      <h2>Тренери</h2>
+      <div id="coaches-list" class="person-grid"></div>
     </div>
   </section>
 
-  <!-- Тренери -->
-  <section id="coaches" class="persons">
+  <!-- БАЗА -->
+  <section id="base" class="section">
     <div class="container">
-      <h2>Тренерський склад</h2>
-      <div class="filters" id="coach-filters">
-        <!-- Фільтри за відділами -->
-      </div>
-      <div id="coaches-list" class="person-grid">
-        <!-- Картки тренерів -->
-      </div>
+      <h2>Тренувальна база</h2>
+      <div id="base-list" class="card-grid"></div>
     </div>
   </section>
 
-  <!-- Новини -->
-  <section id="news" class="news">
+  <!-- СПОНСОРИ (новий блок у футері/перед футером) -->
+  <section id="sponsors" class="section sponsors">
     <div class="container">
-      <h2>Останні новини</h2>
-      <div id="news-list" class="news-grid">
-        <!-- Картки новин -->
-      </div>
+      <h2>Наші спонсори</h2>
+      <div id="sponsors-list" class="logos"></div>
     </div>
   </section>
 
-  <!-- Контакти та форма -->
-  <section id="contacts" class="contacts">
+  <!-- НОВИНИ -->
+  <section id="news" class="section">
+    <div class="container">
+      <h2>Новини</h2>
+      <div id="news-list" class="news-grid"></div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТИ -->
+  <section id="contacts-block" class="section">
     <div class="container">
       <h2>Контакти</h2>
-      <div class="contacts-wrapper">
-        <div class="contact-info">
-          <p><strong>Адреса:</strong> <span id="contact-address"></span></p>
-          <p><strong>Телефон:</strong> <a id="contact-phone" href=""></a></p>
-          <p><strong>Email:</strong> <a id="contact-email" href=""></a></p>
-        </div>
-        <div class="contact-form">
-          <form id="signup-form" action="#" method="POST" onsubmit="return false;">
-            <div class="form-group">
-              <label for="name">Ім’я</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="age">Вік дитини</label>
-              <input type="number" id="age" name="age" min="5" max="21" required>
-            </div>
-            <div class="form-group">
-              <label for="sport">Вид спорту</label>
-              <select id="sport" name="sport" required>
-                <option value="Футбол">Футбол</option>
-                <option value="Настільний теніс">Настільний теніс</option>
-                <option value="Плавання">Плавання</option>
-                <option value="Гімнастика">Гімнастика</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="phone">Контактний телефон</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Коментар</label>
-              <textarea id="message" name="message" rows="3"></textarea>
-            </div>
-            <div class="form-group checkbox">
-              <label>
-                <input type="checkbox" id="consent" required>
-                Я погоджуюся на обробку персональних даних
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Надіслати</button>
-            <p id="form-status" class="form-status"></p>
-          </form>
-        </div>
-      </div>
+      <div id="contacts"></div>
     </div>
   </section>
 
-  <footer id="footer">
-    <div class="container footer-content">
-      <p>&copy; <span id="year"></span> ДЮСШ‑21. Усі права захищено.</p>
-      <p><a href="admin/">Редагувати сайт</a></p>
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container">
+      <div id="footer-text"></div>
     </div>
   </footer>
 
+  <!-- РЕНДЕР MARKDOWN + ПІДТЯГУВАННЯ ДАНИХ З CMS -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch('/content/site.json')
+      .then(r => r.json())
+      .then(d => {
+        const md = s => marked.parse(s || '');
+        const $ = id => document.getElementById(id);
+
+        // Тексти
+        if ($('hero-title')) $('hero-title').textContent = d.hero_title || '';
+        if ($('hero-subtitle')) $('hero-subtitle').innerHTML = md(d.hero_subtitle);
+        if ($('school-description')) $('school-description').innerHTML = md(d.school_description);
+        if ($('contacts')) $('contacts').innerHTML = md(d.contacts);
+        if ($('footer-text')) $('footer-text').innerHTML = md(d.footer_text);
+
+        // Хелпер для створення елементів з HTML
+        const el = (html) => {
+          const t = document.createElement('template');
+          t.innerHTML = html.trim();
+          return t.content.firstChild;
+        };
+
+        // Керівництво
+        const adminWrap = $('admin-list');
+        d.administration?.forEach(a => {
+          adminWrap && adminWrap.appendChild(el(`
+            <article class="person">
+              ${a.photo ? `<img src="${a.photo}" alt="${a.name}">` : ''}
+              <h4>${a.name || ''}</h4>
+              ${a.position ? `<p class="position">${a.position}</p>` : ''}
+              <div class="desc">${md(a.description || '')}</div>
+            </article>
+          `));
+        });
+
+        // Тренери
+        const coachesWrap = $('coaches-list');
+        d.coaches?.forEach(c => {
+          coachesWrap && coachesWrap.appendChild(el(`
+            <article class="coach">
+              ${c.photo ? `<img src="${c.photo}" alt="${c.name}">` : ''}
+              <h4>${c.name || ''}</h4>
+              ${c.phone ? `<p class="phone">${c.phone}</p>` : ''}
+              <div class="desc">${md(c.description || '')}</div>
+            </article>
+          `));
+        });
+
+        // База
+        const baseWrap = $('base-list');
+        d.base?.forEach(b => {
+          baseWrap && baseWrap.appendChild(el(`
+            <article class="base-item">
+              ${b.photo ? `<img src="${b.photo}" alt="${b.title}">` : ''}
+              <h4>${b.title || ''}</h4>
+              <div class="desc">${md(b.description || '')}</div>
+            </article>
+          `));
+        });
+
+        // Спонсори
+        const sponsorsWrap = $('sponsors-list');
+        d.sponsors?.forEach(s => {
+          sponsorsWrap && sponsorsWrap.appendChild(el(`
+            <a class="sponsor" href="${s.url || '#'}" target="_blank" rel="noopener">
+              ${s.logo ? `<img src="${s.logo}" alt="${s.title || ''}">` : `<span>${s.title || ''}</span>`}
+              ${s.description ? `<div class="desc">${md(s.description)}</div>` : ''}
+            </a>
+          `));
+        });
+
+        // Новини
+        const newsWrap = $('news-list');
+        d.news?.forEach(n => {
+          const dateText = n.date ? new Date(n.date).toLocaleDateString('uk-UA') : '';
+          newsWrap && newsWrap.appendChild(el(`
+            <article class="news-card">
+              ${n.image ? `<img src="${n.image}" alt="${n.title || ''}">` : ''}
+              <h4>${n.title || ''}</h4>
+              ${dateText ? `<time datetime="${n.date}">${dateText}</time>` : ''}
+              <div class="body">${md(n.body || '')}</div>
+            </article>
+          `));
+        });
+      })
+      .catch(console.error);
+  </script>
 </body>
 </html>
+
